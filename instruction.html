@@ -4,508 +4,439 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Як підготувати макет для друку наклійок | NAKLEIKA.COM.UA</title>
-  <meta name="description" content="Покрокова інструкція з підготовки макета для друку наклійок, стікерів та етикеток у Adobe Illustrator. PDF, CMYK, контур різу — все що потрібно знати." />
-  <meta name="keywords" content="друк наклійок, макет для наклійок, підготовка макета, Adobe Illustrator, контур різу, CMYK" />
+  <meta name="description" content="Інструкція з технічних вимог до підготовки одиничних макетів у програмі Adobe Illustrator. Формат PDF, CMYK, контур різу CUT." />
+  <meta name="keywords" content="макет для наклійок, підготовка макета, Adobe Illustrator, контур різу, CMYK, PDF, nakleika" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://nakleika.com.ua/instruction" />
-  <meta property="og:title" content="Як підготувати макет для друку наклійок" />
-  <meta property="og:description" content="Покрокова інструкція для Adobe Illustrator: PDF, CMYK, вильот 1 мм, контур різу CUT." />
+  <link rel="canonical" href="https://nakleika.com.ua/pidgotovka-maketu" />
+  <meta property="og:title" content="Як підготувати макет для друку наклійок — NAKLEIKA.COM.UA" />
+  <meta property="og:description" content="Покрокова інструкція підготовки макета в Adobe Illustrator: PDF, CMYK, вильот 1 мм, контур різу CUT." />
   <meta property="og:type" content="article" />
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"HowTo","name":"Як підготувати макет для друку наклійок","description":"Покрокова інструкція підготовки макета наклійки у Adobe Illustrator","step":[{"@type":"HowToStep","name":"Перейти в режим Stroke","position":1},{"@type":"HowToStep","name":"Відкрити Windows → Color","position":2},{"@type":"HowToStep","name":"Перейти в меню Swatches","position":3},{"@type":"HowToStep","name":"Створити новий зразок","position":4},{"@type":"HowToStep","name":"Задати параметри зразка CUT","position":5},{"@type":"HowToStep","name":"Вибрати контур різу","position":6},{"@type":"HowToStep","name":"Застосувати зразок CUT","position":7},{"@type":"HowToStep","name":"Зберегти у форматі PDF","position":8}]}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Як підготувати макет для друку наклійок","description":"Покрокова інструкція підготовки макета у Adobe Illustrator","step":[{"@type":"HowToStep","position":1,"name":"Перейти в режим Stroke (X)"},{"@type":"HowToStep","position":2,"name":"Перейти в меню Windows→Color (F6)"},{"@type":"HowToStep","position":3,"name":"Перейти в меню Swatches"},{"@type":"HowToStep","position":4,"name":"Створити новий зразок (New Swatch)"},{"@type":"HowToStep","position":5,"name":"Задати параметри зразка CUT"},{"@type":"HowToStep","position":6,"name":"Вибрати контур різу"},{"@type":"HowToStep","position":7,"name":"Задати параметри створеного зразка CUT"},{"@type":"HowToStep","position":8,"name":"Зберегти файл у форматі PDF"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== BASE (inline shared) ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --accent: #f5a800; --accent-dark: #d98f00; --accent-light: #fff8e6;
-      --text: #212529; --text-muted: #6c757d; --text-light: #adb5bd;
-      --border: #dee2e6; --bg: #fff; --bg-light: #f8f9fa; --bg-accent: #fffbf0;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,.08); --shadow: 0 2px 8px rgba(0,0,0,.10); --shadow-md: 0 4px 16px rgba(0,0,0,.10);
-      --radius: 8px; --radius-lg: 12px;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    a { color: var(--accent-dark); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    /* IMAGE PLACEHOLDER */
-    .img-ph {
-      background: #f1f3f5; border: 2px dashed #ced4da; border-radius: var(--radius);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 0.5rem; color: #adb5bd; text-align: center; padding: 1rem;
-    }
-    .img-ph svg { opacity: 0.35; }
-    .img-ph span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; }
-
-    /* NAV */
-    .navbar { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
-    .navbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; height: 60px; display: flex; align-items: center; gap: 1.5rem; }
-    .navbar-brand { font-weight: 800; font-size: 1rem; color: var(--text); text-decoration: none; flex-shrink: 0; white-space: nowrap; }
-    .navbar-brand em { font-style: normal; color: var(--accent); }
-    .navbar-nav { display: flex; align-items: center; gap: 0.1rem; list-style: none; flex: 1; }
-    .navbar-nav a { color: var(--text-muted); font-size: 0.83rem; font-weight: 600; padding: 0.35rem 0.65rem; border-radius: 6px; text-decoration: none; transition: color 0.15s, background 0.15s; }
-    .navbar-nav a:hover { color: var(--text); background: var(--bg-light); }
-    .navbar-actions { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; flex-shrink: 0; }
-    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1.1rem; border-radius: 6px; font-family: inherit; font-weight: 700; font-size: 0.85rem; text-decoration: none !important; cursor: pointer; border: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
-    .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-    .btn-outline { background: transparent; color: var(--text); border-color: var(--border); }
-    .btn-outline:hover { background: var(--bg-light); border-color: #adb5bd; }
-    .btn-outline-accent { background: transparent; color: var(--accent-dark); border-color: var(--accent); }
-    .btn-outline-accent:hover { background: var(--accent-light); }
-    .btn-lg { padding: 0.7rem 1.75rem; font-size: 0.95rem; }
-
-    .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
-
-    /* LAYOUT */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-    .section { padding: 4rem 0; }
-    .section-alt { background: var(--bg-light); }
-    .section-accent { background: var(--bg-accent); border-top: 1px solid #ffe8a3; border-bottom: 1px solid #ffe8a3; }
-
-    /* PAGE HEADER */
-    .page-header {
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 0;
-    }
-    .breadcrumb { display: flex; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; align-items: center; }
-    .breadcrumb a { color: var(--text-muted); }
-    .breadcrumb a:hover { color: var(--text); }
-    .breadcrumb-sep { color: var(--text-light); }
-    .page-title { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
-    .page-subtitle { margin-top: 0.6rem; color: var(--text-muted); font-size: 1rem; max-width: 600px; }
-
-    /* REQUIREMENTS CARDS */
-    .req-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-    .req-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; border-top: 3px solid var(--accent); }
-    .req-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .req-card h3 { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; }
-    .req-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; }
-    .req-badge { display: inline-block; margin-top: 0.65rem; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; background: var(--accent-light); color: var(--accent-dark); }
-
-    /* STEPS */
-    .steps-wrapper { display: grid; gap: 1rem; margin-top: 2rem; }
-    .step-item {
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
       background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.75rem;
+      line-height: 1.6;
+    }
+
+    a { color: #333; text-decoration: none; }
+    a:hover { color: #d48f00; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #d0d0d0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: stretch;
+      min-height: 56px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      padding-right: 16px;
+      flex-shrink: 0;
+    }
+    .nav-logo-img {
+      width: 84px;
+      height: 40px;
+      background: #e0e0e0;
+      display: block;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      flex: 1;
+    }
+    .nav-menu li a {
+      display: block;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .nav-menu li a:hover { color: #d48f00; }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      padding-left: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 6px 16px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-nav-login { border-color: #bbb; color: #333; background: #fff; }
+    .btn-nav-register { background: #f5a800; color: #fff; border-color: #f5a800; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      align-self: center;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #333; border-radius: 2px; }
+
+    /* ── WRAPPER ── */
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+    /* ── CONTENT ── */
+    .main-content { padding: 28px 0 48px; }
+
+    h1.page-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #1a5fb4;
+      margin-bottom: 16px;
+    }
+
+    h2.section-head {
+      font-size: 15px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    p.body-text {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+
+    /* ── REQUIREMENTS ── */
+    .req-grid {
       display: grid;
-      grid-template-columns: 52px 1fr auto;
-      gap: 1.25rem;
+      grid-template-columns: 220px auto 1fr;
+      gap: 24px;
       align-items: start;
-      transition: box-shadow 0.2s;
+      margin: 20px 0 32px;
     }
-    .step-item:hover { box-shadow: var(--shadow-md); }
-    .step-num {
-      width: 52px; height: 52px; flex-shrink: 0;
-      background: var(--accent-light);
-      border: 2px solid #ffe8a3;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.15rem;
-      color: var(--accent-dark);
+    .req-logo-wrap { display: flex; flex-direction: column; }
+    .req-logo-filename { font-size: 12px; color: #666; margin-bottom: 6px; }
+    .img-block { background: #e0e0e0; display: block; }
+    .req-logo-img { width: 180px; height: 154px; }
+    .req-list { list-style: none; padding-top: 20px; }
+    .req-list li { font-size: 13px; color: #555; padding: 5px 0; padding-left: 16px; position: relative; }
+    .req-list li::before { content: '—'; position: absolute; left: 0; }
+    .req-list li strong { color: #222; font-weight: 700; }
+    .req-screen { width: 100%; height: 196px; }
+
+    hr.divider { border: none; border-top: 1px solid #ddd; margin: 28px 0; }
+
+    /* ── STEPS ── */
+    h2.steps-main-title { font-size: 15px; font-weight: 700; color: #222; margin-bottom: 26px; }
+
+    .step-row {
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: start;
     }
-    .step-content h3 { font-weight: 800; font-size: 1rem; margin-bottom: 0.35rem; }
-    .step-content p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
-    .step-tag { display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.55rem; background: #f1f3f5; border-radius: 4px; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.04em; }
-    .step-img { width: 160px; flex-shrink: 0; }
+    .step-label { font-size: 13px; color: #555; line-height: 1.7; }
+    .step-label strong { color: #222; }
+    .step-screen-lg { width: 100%; height: 260px; }
+    .step-screen-md { width: 100%; height: 220px; }
 
-    /* SWATCH PARAMS TABLE */
-    .params-table { margin-top: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .param-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; font-size: 0.85rem; border-bottom: 1px solid var(--border); background: #fff; }
-    .param-row:last-child { border-bottom: none; }
-    .param-row:nth-child(even) { background: var(--bg-light); }
-    .pk { color: var(--text-muted); }
-    .pv { font-weight: 800; color: var(--accent-dark); }
-
-    /* INFO BANNER */
-    .info-banner {
-      background: var(--accent-light); border: 1px solid #ffe8a3; border-radius: var(--radius-lg);
-      padding: 1.25rem 1.5rem;
-      display: flex; gap: 1rem; align-items: flex-start;
-      margin-top: 2rem;
+    /* Step 5 */
+    .step5-grid {
+      display: grid;
+      grid-template-columns: 1fr 290px;
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: start;
     }
-    .info-banner-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .info-banner p { font-size: 0.875rem; color: #7a5800; line-height: 1.6; }
-    .info-banner strong { color: #5a4000; }
+    .step5-text { font-size: 13px; color: #555; line-height: 1.8; }
+    .step5-text strong { color: #222; }
 
-    /* FAQ */
-    .faq-list { display: grid; gap: 0.75rem; margin-top: 1.5rem; max-width: 780px; }
-    .faq-item { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #fff; }
-    .faq-q { width: 100%; text-align: left; padding: 1rem 1.25rem; background: none; border: none; font-family: inherit; font-size: 0.95rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .faq-arrow { width: 22px; height: 22px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s, background 0.2s; }
-    .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--accent); }
-    .faq-item.open .faq-arrow svg { stroke: #fff; }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.2s; padding: 0 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
-    .faq-item.open .faq-a { max-height: 250px; padding: 0 1.25rem 1.1rem; }
+    /* Swatch dialog */
+    .swatch-dialog {
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      background: #f0f0f0;
+      font-size: 11px;
+      overflow: hidden;
+    }
+    .sw-titlebar {
+      background: #4a4888;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      letter-spacing: 0.04em;
+    }
+    .sw-body { padding: 10px 12px; background: #e8e8e8; }
+    .sw-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .sw-lbl { font-size: 11px; color: #333; width: 86px; flex-shrink: 0; }
+    .sw-input {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #888;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #000;
+    }
+    .sw-select {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #888;
+      padding: 2px 6px;
+      font-size: 11px;
+      color: #000;
+    }
+    .sw-cmyk { margin: 6px 0; }
+    .sw-cmyk-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .sw-cmyk-lbl { width: 12px; font-weight: 700; font-size: 10px; color: #333; }
+    .sw-cmyk-track { flex: 1; height: 7px; background: #ccc; border-radius: 10px; position: relative; }
+    .sw-cmyk-fill { height: 100%; border-radius: 10px; }
+    .sw-cmyk-num { width: 28px; text-align: right; font-size: 10px; color: #333; }
+    .sw-pct { font-size: 10px; color: #666; }
+    .sw-footer { display: flex; justify-content: flex-end; gap: 6px; padding: 8px 10px; background: #e0e0e0; border-top: 1px solid #bbb; }
+    .sw-btn { padding: 3px 14px; font-size: 10px; border: 1px solid #999; border-radius: 2px; background: #e8e8e8; cursor: pointer; }
+    .sw-preview { font-size: 10px; color: #555; margin-right: auto; }
 
-    /* CTA SECTION */
-    .cta-section { background: var(--accent); padding: 3.5rem 0; text-align: center; }
-    .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: #fff; max-width: 520px; margin: 0 auto 0.75rem; }
-    .cta-section p { color: rgba(255,255,255,0.82); font-size: 1rem; max-width: 460px; margin: 0 auto 1.75rem; }
-    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: var(--accent-dark); border-color: #fff; }
-    .btn-white:hover { background: #f8f9fa; }
-    .btn-white-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.55); }
-    .btn-white-outline:hover { background: rgba(255,255,255,0.12); }
+    /* Steps 6+7 */
+    .step67-row {
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: start;
+    }
+    .step67-text { font-size: 13px; color: #555; line-height: 2.0; }
 
-    /* FOOTER */
-    footer { background: #212529; color: rgba(255,255,255,0.6); padding: 1.5rem 0; font-size: 0.82rem; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
-    footer a { color: var(--accent); }
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      background: #f5f5f5;
+      border-top: 1px solid #ddd;
+      padding: 22px 0;
+    }
+    .footer-note p { font-size: 13px; color: #555; line-height: 1.7; }
+    .footer-note a { color: #d48f00; }
 
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* MOBILE */
-    @media (max-width: 900px) {
-      .req-grid { grid-template-columns: repeat(2, 1fr); }
-      .step-img { display: none; }
+    /* ── MOBILE ── */
+    @media (max-width: 860px) {
+      .req-grid { grid-template-columns: 1fr; }
+      .req-logo-wrap { flex-direction: row; gap: 16px; align-items: flex-start; }
+      .step-row, .step5-grid, .step67-row { grid-template-columns: 1fr; }
+      .step-screen-lg, .step-screen-md { height: 200px; }
     }
     @media (max-width: 640px) {
-      .req-grid { grid-template-columns: 1fr; }
-      .step-item { grid-template-columns: 44px 1fr; }
-      .step-num { width: 44px; height: 44px; font-size: 1rem; }
-      .navbar-nav { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; gap: 0.15rem; box-shadow: var(--shadow-md); }
-      .navbar-nav.open { display: flex; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 56px; left: 0; right: 0;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 16px;
+        z-index: 200;
+      }
+      .nav-menu.open { display: flex; }
       .hamburger { display: flex; }
-      .navbar-actions .btn-outline { display: none; }
-      .cta-btns { flex-direction: column; align-items: center; }
+      .nav-actions .btn-nav-login { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="navbar">
   <div class="navbar-inner">
-    <a class="navbar-brand" href="/">NAKLEIKA<em>.COM.UA</em></a>
-    <ul class="navbar-nav" id="navLinks">
-      <li><a href="#">Підготовка макетів</a></li>
-      <li><a href="#">Матеріали для друку</a></li>
-      <li><a href="#">Типи продукції</a></li>
-      <li><a href="#">Макет у ChatGPT</a></li>
+    <div class="nav-logo">
+      <div class="nav-logo-img img-block"></div>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/">Підготовка<br>макетів</a></li>
+      <li><a href="#">Матеріали<br>для друку</a></li>
+      <li><a href="#">Типи<br>продукції</a></li>
+      <li><a href="#">Макет у ChatGPT<br>— ДРУК У НАС</a></li>
       <li><a href="#">Контакти</a></li>
     </ul>
-    <div class="navbar-actions">
-      <a href="#" class="btn btn-outline">Увійти</a>
-      <a href="#" class="btn btn-primary">Реєстрація</a>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-nav-login">Увійти</a>
+      <a href="#" class="btn btn-nav-register">Реєстрація</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <button class="hamburger" aria-label="Меню" onclick="document.getElementById('navMenu').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Головна</a>
-      <span class="breadcrumb-sep">›</span>
-      <a href="#">Підготовка макетів</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>Одиничні наклійки</span>
-    </div>
+<div class="wrap">
+  <div class="main-content">
+
     <h1 class="page-title">Як підготувати макет для друку наклійок?</h1>
-    <p class="page-subtitle">Інструкція з технічних вимог до підготовки одиничних макетів у програмі Adobe Illustrator. Виконайте ці кроки — і ваш файл буде прийнятий з першого разу.</p>
+
+    <h2 class="section-head">Інструкція з технічних вимог до підготовки одиничних макетів у програмі Adobe Illustrator.</h2>
+
+    <p class="body-text">Щоб ми змогли швидко, без помилок і без додаткових погоджень надрукувати ваші наліпки, стікери або етикетки, макет має відповідати наведеним нижче технічним вимогам.</p>
+
+    <!-- REQUIREMENTS BLOCK -->
+    <div class="req-grid">
+      <div class="req-logo-wrap">
+        <span class="req-logo-filename">logo.pdf</span>
+        <div class="img-block req-logo-img"></div>
+      </div>
+      <ul class="req-list">
+        <li>Формат файлу = <strong>PDF</strong></li>
+        <li>Кольорова модель <strong>CMYK.</strong></li>
+        <li>Вильоти під збірку<br>не менше ніж <strong>1 мм</strong></li>
+      </ul>
+      <div class="img-block req-screen"></div>
+    </div>
+
+    <hr class="divider">
+
+    <h2 class="steps-main-title">Інструкція: як задати параметри для автоматичного розпізнавання контуру різу.</h2>
+
+    <!-- STEP 1 -->
+    <div class="step-row">
+      <div class="step-label">
+        <p>1. переiдiть в режим Stroke (X)<br>Штрих/Ко-тур</p>
+      </div>
+      <div class="img-block step-screen-lg"></div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-row">
+      <div class="step-label">
+        <p>2. переiдiть в меню Windows→Color (F6)</p>
+      </div>
+      <div class="img-block step-screen-lg"></div>
+    </div>
+
+    <!-- STEPS 3 + 4 -->
+    <div class="step-row">
+      <div class="step-label">
+        <p>3. переiдiть в меню Swatches</p>
+        <br>
+        <p>4. створюємо новий зразок (New Swatch).</p>
+      </div>
+      <div class="img-block step-screen-lg"></div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step5-grid">
+      <div class="step5-text">
+        <p>5. створюємо новий зразок (New Swatch)<br>
+        з такими параметрами:<br>
+        Swatch Name= <strong>CUT</strong> (штовхаємо літерами)<br>
+        Color Type= <strong>Spot Color</strong><br>
+        Color Mode= <strong>CMYK</strong></p>
+      </div>
+      <div class="swatch-dialog">
+        <div class="sw-titlebar">Swatch Options</div>
+        <div class="sw-body">
+          <div class="sw-row">
+            <span class="sw-lbl">Swatch Name:</span>
+            <span class="sw-input">CUT</span>
+          </div>
+          <div class="sw-row">
+            <span class="sw-lbl">Color Type:</span>
+            <span class="sw-select">Spot Color</span>
+          </div>
+          <div class="sw-row">
+            <span class="sw-lbl">Color Mode:</span>
+            <span class="sw-select">CMYK</span>
+          </div>
+          <div class="sw-cmyk">
+            <div class="sw-cmyk-row">
+              <span class="sw-cmyk-lbl">C</span>
+              <div class="sw-cmyk-track"><div class="sw-cmyk-fill" style="width:0%;background:#00b8e6;"></div></div>
+              <span class="sw-cmyk-num">0</span><span class="sw-pct">%</span>
+            </div>
+            <div class="sw-cmyk-row">
+              <span class="sw-cmyk-lbl">M</span>
+              <div class="sw-cmyk-track"><div class="sw-cmyk-fill" style="width:100%;background:#e6006e;"></div></div>
+              <span class="sw-cmyk-num">100</span><span class="sw-pct">%</span>
+            </div>
+            <div class="sw-cmyk-row">
+              <span class="sw-cmyk-lbl">Y</span>
+              <div class="sw-cmyk-track"><div class="sw-cmyk-fill" style="width:100%;background:#ffe200;"></div></div>
+              <span class="sw-cmyk-num">100</span><span class="sw-pct">%</span>
+            </div>
+            <div class="sw-cmyk-row">
+              <span class="sw-cmyk-lbl">K</span>
+              <div class="sw-cmyk-track"><div class="sw-cmyk-fill" style="width:0%;background:#333;"></div></div>
+              <span class="sw-cmyk-num">0</span><span class="sw-pct">%</span>
+            </div>
+          </div>
+        </div>
+        <div class="sw-footer">
+          <span class="sw-preview">□ Preview</span>
+          <button class="sw-btn">OK</button>
+          <button class="sw-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEPS 6 + 7 -->
+    <div class="step67-row">
+      <div class="step67-text">
+        <p>6. вибираємо контур різу</p>
+        <br>
+        <p>7. задаємо параметри створеного зразка<br>CUT</p>
+      </div>
+      <div class="img-block" style="height:240px;"></div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step-row">
+      <div class="step-label">
+        <p>8. Зберігаємо файл в форматі PDF,<br>
+        завантажуємо в сервіс NAKLEIKA.COM.UA<br>
+        обравши вид продукції<br>
+        <strong>НАКЛІЙКИ В ЛИСТАХ (А3+,А3, А4+, А4)<br>
+        з плотерною порізкою</strong></p>
+      </div>
+      <div class="img-block step-screen-md"></div>
+    </div>
+
   </div>
 </div>
 
-<!-- REQUIREMENTS -->
-<section class="section section-accent">
-  <div class="container">
-    <div class="reveal">
-      <span style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);">Крок 0 — Перед початком</span>
-      <h2 style="font-size:1.5rem;font-weight:800;margin-top:0.35rem;letter-spacing:-0.01em;">Базові вимоги до макета</h2>
-      <p style="color:var(--text-muted);margin-top:0.5rem;font-size:0.95rem;">Щоб ми змогли без помилок надрукувати ваші наклійки — макет повинен відповідати цим вимогам.</p>
-    </div>
-    <div class="req-grid">
-      <div class="req-card reveal">
-        <div class="req-icon">📄</div>
-        <h3>Формат файлу</h3>
-        <p>Файл повинен бути збережений у форматі PDF. Це єдиний формат, що приймається для друку.</p>
-        <span class="req-badge">PDF</span>
-      </div>
-      <div class="req-card reveal">
-        <div class="req-icon">🎨</div>
-        <h3>Кольорова модель</h3>
-        <p>Усі кольори в файлі мають бути в моделі CMYK. RGB-кольори відрізняються при друку.</p>
-        <span class="req-badge">CMYK</span>
-      </div>
-      <div class="req-card reveal">
-        <div class="req-icon">📐</div>
-        <h3>Вильот під збірку</h3>
-        <p>Фон та зображення мають виходити за межі ріжучої лінії не менше ніж на 1 мм.</p>
-        <span class="req-badge">≥ 1 мм</span>
-      </div>
-      <div class="req-card reveal">
-        <div class="req-icon">✂️</div>
-        <h3>Контур різу</h3>
-        <p>Форма наклійки задається окремим Spot Color зразком із назвою <strong>CUT</strong>.</p>
-        <span class="req-badge">Spot Color CUT</span>
-      </div>
-    </div>
+<!-- FOOTER NOTE -->
+<div class="footer-note">
+  <div class="wrap">
+    <p>Якщо макет не відповідає вимогам?</p>
+    <p>Якщо ви не впевнені у підготовці макета — надішліть його нам, і ми допоможемо адаптувати макет до вимог друку.</p>
+    <p>Email: <a href="mailto:nakleika.druk@gmail.com">nakleika.druk@gmail.com</a></p>
   </div>
-</section>
+</div>
 
-<!-- STEPS: BASIC FILE SETUP -->
-<section class="section">
-  <div class="container">
-    <div class="reveal">
-      <span style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);">Частина 1</span>
-      <h2 style="font-size:1.5rem;font-weight:800;margin-top:0.35rem;letter-spacing:-0.01em;">Базове налаштування файлу</h2>
-    </div>
-
-    <div class="steps-wrapper" style="margin-top:1.75rem;">
-
-      <!-- Step with logo placeholder -->
-      <div class="step-item reveal" style="grid-template-columns: 52px 1fr 160px; align-items:center;">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h3>Налаштування файлу (logo.pdf)</h3>
-          <p>Підготуйте ваш файл відповідно до трьох базових вимог: збережіть у форматі <strong>PDF</strong>, переведіть всі кольори в <strong>CMYK</strong> та додайте вильот під збірку не менше <strong>1 мм</strong> з усіх сторін.</p>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:120px;">
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Приклад файлу<br/>logo.pdf</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- STEPS: CUT CONTOUR -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="reveal">
-      <span style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);">Частина 2</span>
-      <h2 style="font-size:1.5rem;font-weight:800;margin-top:0.35rem;letter-spacing:-0.01em;">Налаштування контуру різу в Illustrator</h2>
-      <p style="color:var(--text-muted);margin-top:0.5rem;font-size:0.95rem;max-width:580px;">Контур різу — це лінія, за якою плотер вирізає наклійку. Виконайте кроки нижче точно в такому порядку.</p>
-    </div>
-
-    <div class="steps-wrapper">
-
-      <div class="step-item reveal">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h3>Перейти в режим Stroke</h3>
-          <p>Натисніть клавішу <strong>X</strong> або клікніть на іконку Stroke (Штрих/Контур) у панелі інструментів, щоб він опинився поверх Fill.</p>
-          <span class="step-tag">Shortcut: X</span>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/></svg>
-            <span>Illustrator<br/>Stroke mode</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item reveal">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h3>Відкрити Windows → Color</h3>
-          <p>У головному меню виберіть <strong>Window → Color</strong> або натисніть <strong>F6</strong>, щоб відкрити панель кольорів.</p>
-          <span class="step-tag">Shortcut: F6</span>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
-            <span>Color panel<br/>Windows → Color</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item reveal">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h3>Перейти до меню Swatches</h3>
-          <p>Відкрийте панель <strong>Window → Swatches</strong>. Тут ви будете створювати спеціальний зразок кольору для контуру різу.</p>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="4" height="4" rx="1"/><rect x="13" y="7" width="4" height="4" rx="1"/><rect x="7" y="13" width="4" height="4" rx="1"/></svg>
-            <span>Swatches panel</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item reveal">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h3>Створити новий зразок</h3>
-          <p>У панелі Swatches натисніть іконку <strong>New Swatch</strong> (сторінка з плюсом у нижньому правому куті), щоб відкрити діалог параметрів.</p>
-          <span class="step-tag">New Swatch</span>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
-            <span>New Swatch<br/>button</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 5 - with params table, wider layout -->
-      <div class="step-item reveal" style="display:block; padding:1.5rem 1.75rem;">
-        <div style="display:grid; grid-template-columns:52px 1fr; gap:1.25rem; margin-bottom:1rem;">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h3>Задати параметри зразка CUT</h3>
-            <p>Заповніть поля діалогу <strong>Swatch Options</strong> точно так, як вказано нижче. Відхилення в назві або типі кольору призведе до помилки розпізнавання контуру.</p>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns: 1fr 260px; gap:1.25rem; padding-left: calc(52px + 1.25rem);">
-          <div class="params-table">
-            <div class="param-row"><span class="pk">Swatch Name</span><span class="pv">CUT</span></div>
-            <div class="param-row"><span class="pk">Color Type</span><span class="pv">Spot Color</span></div>
-            <div class="param-row"><span class="pk">Color Mode</span><span class="pv">CMYK</span></div>
-            <div class="param-row"><span class="pk">C / M / Y / K</span><span class="pv">0 / 100 / 100 / 0</span></div>
-          </div>
-          <div class="img-ph" style="height:130px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
-            <span>Swatch Options<br/>Dialog window</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item reveal">
-        <div class="step-num">6</div>
-        <div class="step-content">
-          <h3>Вибрати контур різу на полотні</h3>
-          <p>Виділіть лінію або форму, яка визначає межу вирізки наклійки. Це має бути окремий об'єкт або шар поверх зображення.</p>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg>
-            <span>Вибір контуру<br/>на полотні</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item reveal">
-        <div class="step-num">7</div>
-        <div class="step-content">
-          <h3>Застосувати зразок CUT до Stroke</h3>
-          <p>Переконайтеся, що активний Stroke (не Fill), і клікніть на щойно створений зразок <strong>CUT</strong> у панелі Swatches. Колір контуру зміниться на червоний.</p>
-          <span class="step-tag">Stroke → CUT</span>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-            <span>Застосування<br/>зразка CUT</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item reveal">
-        <div class="step-num">8</div>
-        <div class="step-content">
-          <h3>Зберегти файл у форматі PDF</h3>
-          <p>Виберіть <strong>File → Save As → Adobe PDF</strong>. Завантажте файл у сервіс NAKLEIKA.COM.UA, обравши вид продукції <em>«Наклійки в листах з плотерною порізкою»</em>.</p>
-          <span class="step-tag">File → Save As → PDF</span>
-        </div>
-        <div class="step-img">
-          <div class="img-ph" style="height:110px;">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span>Save As PDF<br/>Завантаження</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="info-banner reveal">
-      <div class="info-banner-icon">💡</div>
-      <p><strong>Порада:</strong> Якщо макет не відповідає вимогам — не хвилюйтесь. Надішліть нам файл на <a href="mailto:nakleika.druk@gmail.com" style="color:var(--accent-dark);font-weight:700;">nakleika.druk@gmail.com</a>, і ми безкоштовно адаптуємо його до вимог друку.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section">
-  <div class="container">
-    <div class="reveal">
-      <span style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);">Часті запитання</span>
-      <h2 style="font-size:1.5rem;font-weight:800;margin-top:0.35rem;letter-spacing:-0.01em;">Відповіді на ваші запитання</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Що буде, якщо я відправлю файл не в CMYK?
-          <div class="faq-arrow"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="faq-a">Кольори RGB автоматично конвертуються при виводі на плівку. Це може призвести до значного зміщення відтінків — особливо для яскравих і насичених кольорів. Рекомендуємо перевести всі кольори в CMYK ще на етапі проектування.</div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Чи можна надіслати файл у форматі AI або EPS?
-          <div class="faq-arrow"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="faq-a">Ні, ми приймаємо виключно формат PDF. Перед збереженням переконайтеся, що ввімкнено збереження зі збереженням Spot кольорів, або оберіть пресет «PDF/X-4».</div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Чи обов'язковий вильот 1 мм?
-          <div class="faq-arrow"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="faq-a">Так. Плотер ріже з допуском, тому якщо фон не виходить за межу різу, по краях наклійки може з'явитися біла смуга. 1 мм — мінімум; на практиці можна задавати 1.5–2 мм для надійності.</div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Що робити, якщо макет не відповідає вимогам?
-          <div class="faq-arrow"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="faq-a">Надішліть нам файл на nakleika.druk@gmail.com — ми безкоштовно перевіримо його та адаптуємо до вимог друку, або повідомимо про необхідні правки.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2>Готовий макет? Надішліть нам!</h2>
-    <p>Якщо ви не впевнені у підготовці — надішліть файл, і ми безкоштовно адаптуємо його.</p>
-    <div class="cta-btns">
-      <a href="mailto:nakleika.druk@gmail.com" class="btn btn-white btn-lg">
-        ✉️ nakleika.druk@gmail.com
-      </a>
-      <a href="/" class="btn btn-white-outline btn-lg">На головну</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>© 2025 <a href="/">NAKLEIKA.COM.UA</a> — Друк наклійок в Україні</div>
-    <div><a href="mailto:nakleika.druk@gmail.com">nakleika.druk@gmail.com</a></div>
-  </div>
-</footer>
-
-<script>
-  const io = new IntersectionObserver(entries => {
-    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*50); io.unobserve(e.target); }});
-  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-</script>
 </body>
 </html>
